@@ -1,0 +1,37 @@
+== uname/version ==
+Linux localhost 4.9.118+ #107 SMP PREEMPT Tue Nov 16 17:21:47 CST 2021 armv7l
+Linux version 4.9.118+ (chenjx@TD206) (gcc version 4.9.3 20141031 (prerelease) (Linaro GCC 4.9-2014.11) ) #107 SMP PREEMPT Tue Nov 16 17:21:47 CST 2021
+== model/props ==
+m7332_gplus
+9
+m7332
+== selinux ==
+Enforcing
+== dongle ==
+0bda
+8771
+0200
+Bluetooth Radio
+Realtek
+12
+lrwxrwxrwx 1 root root 0 2026-10-26 19:22 /sys/bus/usb/devices/2-1/driver -> ../../../../bus/usb/drivers/usb
+e0
+01
+01
+--- interfaces ---
+basename: Needs 1 argument (see "basename --help")
+/sys/bus/usb/devices/2-1:1.0/ class=e0 sub=01 proto=01 driver=
+basename: Needs 1 argument (see "basename --help")
+/sys/bus/usb/devices/2-1:1.1/ class=e0 sub=01 proto=01 driver=
+== fw path ==
+/vendor/etc/firmware/
+mt7662_firmware_e3_tvbox.bin
+mt7662t_firmware_e1.bin
+--etc firmware--
+ls: /system/etc/firmware/: No such file or directory
+== bt service ==
+Service bluetooth_manager: not found
+ls: /sys/class/bluetooth: No such file or directory
+false
+running
+1

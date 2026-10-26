@@ -1,0 +1,95 @@
+== modules ==
+mt7603u_sta 1548288 1 - Live 0x00000000 (O)
+mtprealloc 16384 1 mt7603u_sta, Live 0x00000000 (PO)
+cfg80211 430080 1 mt7603u_sta, Live 0x00000000
+btmtk_usb 114688 0 - Live 0x00000000 (O)
+uhid 16384 0 - Live 0x00000000
+firmware_class 20480 2 mt7603u_sta,btmtk_usb, Live 0x00000000
+devnode 16384 0 - Live 0x00000000
+dtv_driver 2482176 2 [permanent], Live 0x00000000 (O)
+mstar_fbdev_mi 45056 3 - Live 0x00000000 (O)
+mali_kbase 360448 25 - Live 0x00000000 (O)
+mdrv_ldm 372736 0 - Live 0x00000000 (O)
+mdrv_tuner_si_2151 368640 0 - Live 0x00000000
+mik 4800512 1009 dtv_driver,mstar_fbdev_mi, Live 0x00000000 (O)
+misck 393216 1 mik, Live 0x00000000 (PO)
+mwgifker 114688 1 mik, Live 0x00000000 (PO)
+xcker 339968 1 mik, Live 0x00000000 (PO)
+hdcp2x 233472 2 mik,xcker, Live 0x00000000 (O)
+hdcp1x 61440 1 xcker, Live 0x00000000 (O)
+iniparser 24576 2 dtv_driver,mik, Live 0x00000000 (O)
+utpa2k 13746176 6 mik,misck,mwgifker,xcker,hdcp2x,hdcp1x, Live 0x00000000 (O)
+kdrv_hdr10plus_ref 20480 0 - Live 0x00000000 (O)
+kdrv_tch_vision 73728 0 - Live 0x00000000 (O)
+kdrv_alg 2109440 1 kdrv_hdr10plus_ref, Live 0x00000000 (O)
+kdrv_xc 815104 4 mdrv_ldm,utpa2k,kdrv_tch_vision,kdrv_alg, Live 0x00000000 (O)
+kdrv_platform 32768 1 kdrv_alg, Live 0x00000000 (O)
+== config BT/USB ==
+CONFIG_MODULES_USE_ELF_REL=y
+CONFIG_MODULES=y
+# CONFIG_MODULE_FORCE_LOAD is not set
+CONFIG_MODULE_UNLOAD=y
+# CONFIG_MODULE_FORCE_UNLOAD is not set
+# CONFIG_MODULE_SRCVERSION_ALL is not set
+# CONFIG_MODULE_SIG is not set
+# CONFIG_MODULE_COMPRESS is not set
+CONFIG_MODULES_TREE_LOOKUP=y
+CONFIG_BT=m
+CONFIG_BT_BREDR=y
+CONFIG_BT_RFCOMM=m
+CONFIG_BT_RFCOMM_TTY=y
+CONFIG_BT_BNEP=m
+CONFIG_BT_BNEP_MC_FILTER=y
+CONFIG_BT_BNEP_PROTO_FILTER=y
+CONFIG_BT_HIDP=m
+CONFIG_BT_HS=y
+CONFIG_BT_LE=y
+# CONFIG_BT_LEDS is not set
+# CONFIG_BT_SELFTEST is not set
+CONFIG_BT_DEBUGFS=y
+# CONFIG_BT_HCIBTUSB is not set
+# CONFIG_BT_HCIBTSDIO is not set
+# CONFIG_BT_HCIUART is not set
+# CONFIG_BT_HCIBCM203X is not set
+# CONFIG_BT_HCIBFUSB is not set
+# CONFIG_BT_HCIVHCI is not set
+# CONFIG_BT_MRVL is not set
+CONFIG_USB_EHCI_HCD=y
+CONFIG_USB_EHCI_ROOT_HUB_TT=y
+CONFIG_USB_EHCI_TT_NEWSCHED=y
+# CONFIG_USB_EHCI_SUSPEND_PORT is not set
+# CONFIG_USB_EHCI_HCD_PLATFORM is not set
+# CONFIG_BTRFS_FS is not set
+== kallsyms sample ==
+00000000 T stext
+00000000 T _text
+00000000 t __create_page_tables
+00000000 t __turn_mmu_on_loc
+00000000 t __fixup_smp
+235532 /proc/kallsyms
+== modinfo btmtk_usb ==
+filename:       /vendor/lib/modules/btmtk_usb.ko
+description:    Mediatek Bluetooth USB driver ver 8.0.20050801
+srcversion:     F184668D6FCCB95C22E9362
+depends:        firmware_class
+vermagic:       4.9.118+ SMP preempt mod_unload modversions ARMv7 thumb2 
+== HAL files ==
+-rwxr-xr-x 1 root shell  6736 2008-12-31 19:30 /vendor/bin/hw/android.hardware.bluetooth@1.0-service
+-rw-r--r-- 1 root root  46196 2008-12-31 19:30 /vendor/lib/hw/android.hardware.bluetooth@1.0-impl.so
+-rw-r--r-- 1 root root  19724 2008-12-31 19:30 /vendor/lib/libbluetooth_mtk.so
+libc.so
+libdl.so
+libbase.so
+libcutils.so
+libhardware.so
+libhidlbase.so
+libhidltransport.so
+liblog.so
+libutils.so
+libc++.so
+libm.so
+!g_vendor_interface
+%s unable to initialize vendor library: %d
+%s vendor library loaded
+libbt-vendor.so
+== impl needed libs (readelf) ==

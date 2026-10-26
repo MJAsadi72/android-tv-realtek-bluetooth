@@ -1,0 +1,131 @@
+ls: /system/lib/libbt-vendor.so: No such file or directory
+-rw-r--r-- 1 root root 32236 2008-12-31 19:30 /vendor/lib/libbt-vendor.so
+== vendor lib strings dev/conf ==
+[1;33m[bperf] HCI_LE_SCAN_ENABLE Started (Duplicate_Filter:%02x)(0ms)
+[1;33m[bperf] HCI_LE_SCAN_ENABLE Stopped (Duplicate_Filter:%02x)(%dms)
+[1;33m[bperf] HCI_LE_SET_SCAN_PARAMETER scan_interval(%.2fms) scan_window(%.2fms)
+[1;33m[bperf] HCI_LE_ADV_REPORT Entry FULL!! (%d)
+[1;33m[bperf] HCI_LE_ADV_REPORT (%d)(%02x:%02x:%02x:%02x:%02x:%02x)(%dms)(Connectable_Undirected)
+[1;33m[bperf] HCI_LE_ADV_REPORT (%d)(%02x:%02x:%02x:%02x:%02x:%02x)(%dms)(Scan_Response)
+[1;33m[bperf] HCI_LE_ADV_REPORT (%d)(%02x:%02x:%02x:%02x:%02x:%02x)(%dms)(Non_Connectable_Undirected)
+[1;33m[bperf] HCI_LE_ADV_REPORT (%d)(%02x:%02x:%02x:%02x:%02x:%02x)(%dms)(UNKNOWN 0x%02x)
+[1;33m[bperf] HCI_INQUIRY Started (Inquiry_Length:%.2fs)(0ms)
+[1;33m[bperf] HCI_EXTEND_INQUIRY_RESULT Entry FULL!! (%d)
+[1;33m[bperf] HCI_EXTEND_INQUIRY_RESULT (%d)(%02x:%02x:%02x:%02x:%02x:%02x)(%dms)
+[1;33m[bperf] HCI_REMOTE_NAME_REQUEST (%d)(%02x:%02x:%02x:%02x:%02x:%02x)(%dms)
+[1;33m[bperf] HCI_REMOTE_NAME_REQUEST_COMPLETE (%d)(%02x:%02x:%02x:%02x:%02x:%02x)(%dms)(%s)
+[1;33m[bperf] HCI_INQUIRY_COMPLETE (%dms)
+== libbluetooth_mtk strings ==
+/dev/stpbt
+%s: Can't open serial port stpbt
+== bt_stack.conf ==
+# Enable trace level reconfiguration function
+# Must be present before any TRC_ trace level settings
+TraceConf=true
+
+# Trace level configuration
+#   BT_TRACE_LEVEL_NONE    0    ( No trace messages to be generated )
+#   BT_TRACE_LEVEL_ERROR   1    ( Error condition trace messages )
+#   BT_TRACE_LEVEL_WARNING 2    ( Warning condition trace messages )
+#   BT_TRACE_LEVEL_API     3    ( API traces )
+#   BT_TRACE_LEVEL_EVENT   4    ( Debug messages for events )
+#   BT_TRACE_LEVEL_DEBUG   5    ( Full debug messages )
+#   BT_TRACE_LEVEL_VERBOSE 6    ( Verbose messages ) - Currently supported for TRC_BTAPP only.
+TRC_BTM=2
+TRC_HCI=2
+TRC_L2CAP=2
+TRC_RFCOMM=2
+TRC_OBEX=2
+TRC_AVCT=2
+TRC_AVDT=2
+TRC_AVRC=2
+TRC_AVDT_SCB=2
+TRC_AVDT_CCB=2
+TRC_A2D=2
+TRC_SDP=2
+TRC_SMP=2
+TRC_BTAPP=2
+TRC_BTIF=2
+TRC_BNEP=2
+TRC_PAN=2
+TRC_HID_HOST=2
+TRC_HID_DEV=2
+
+# This is Log configuration for new C++ code using LOG() macros.
+# See libchrome/base/logging.h for description on how to configure your logs.
+# sample configuration:
+#LoggingV=--v=0
+#LoggingVModule=--vmodule=*/btm/*=1,btm_ble_multi*=2,btif_*=1
+
+# PTS testing helpers
+
+# Secure connections only mode.
+# PTS_SecurePairOnly=true
+
+# Disable LE Connection updates
+#PTS_DisableConnUpdates=true
+
+# Disable BR/EDR discovery after LE pairing to avoid cross key derivation errors
+#PTS_DisableSDPOnLEPair=true
+
+# SMP Pair options (formatted as hex bytes) auth, io, ikey, rkey, ksize
+#PTS_SmpOptions=0xD,0x4,0xf,0xf,0x10
+
+# PTS AVRCP Test mode
+#PTS_AvrcpTest=true
+
+# SMP Certification Failure Cases
+# Set any of the following SMP error values (from smp_api_types.h)
+# to induce pairing failues for various PTS SMP test cases.
+# Setting PTS_SmpFailureCase to 0 means normal operation.
+# Failure modes:
+#
+#  SMP_PASSKEY_ENTRY_FAIL = 1
+#  SMP_PAIR_AUTH_FAIL = 3
+#  SMP_CONFIRM_VALUE_ERR = 4
+#  SMP_PAIR_NOT_SUPPORT = 5
+#  SMP_PAIR_FAIL_UNKNOWN = 8
+#  SMP_REPEATED_ATTEMPTS = 9
+#  SMP_NUMERIC_COMPAR_FAIL = 12
+#PTS_SmpFailureCase=0
+
+== bt_did ==
+# Device ID (DID) configuration
+[DID1]
+
+# Primary Record - true or false (default)
+# There can be only one primary record
+primaryRecord = true
+
+# Vendor ID '0xFFFF' indicates no Device ID Service Record is present in the device
+# 0x000F = Broadcom Corporation (default)
+#vendorId = 0x000F
+
+# Set right vendorId
+vendorId = 0x0046
+
+# Vendor ID Source
+# 0x0001 = Bluetooth SIG assigned Device ID Vendor ID value (default)
+# 0x0002 = USB Implementer's Forum assigned Device ID Vendor ID value
+#vendorIdSource = 0x0001
+
+# Product ID & Product Version
+== check bluetooth.ko presence in kernel symbols ==
+== libbt-vendor /dev & conf strings ==
+/H/J
+== symbols libbt-vendor ==
+BLUETOOTH_VENDOR_LIB_INTERFACE
+mtk_prepare_off
+mtk_bt_init
+mtk_bt_op
+mtk_bt_cleanup
+== does libbt-vendor link libbluetooth_mtk ==
+(readelf via strings fallback)
+libc.so
+libbt-vendor.so
+libdl.so
+liblog.so
+libbluetooth_mtk.so
+libcutils.so
+libc++.so
+libm.so

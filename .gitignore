@@ -1,0 +1,29 @@
+# Large downloads / kernel build trees (rebuild locally)
+/dl/
+/kbuild/
+
+# Upstream Realtek HAL clone (reference only)
+/rtk-android-hw/
+
+# Stock TV proprietary modules / framework dumps
+/tv-modules/
+/baseline/services.jar
+/baseline/services.vdex
+/baseline/svcjar/
+
+# MTK firmware copies not required for Realtek path
+/staging/fwvendor/
+
+# Kernel build intermediates
+*.o
+*.mod.c
+*.mod.o
+Module.symvers
+modules.order
+*.cmd
+.tmp_versions/
+
+# Editor / OS
+.DS_Store
+*~
+*.swp
