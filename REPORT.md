@@ -1,7 +1,7 @@
 # Native Bluetooth POC — Result Report
 
 Date: 2026-10-26
-TV: `192.168.1.113:5555`, MediaTek `m7332_gplus`, Android 9 (SDK 28), kernel `4.9.118+` armv7l, `userdebug` build (`adb root` works)
+TV: `192.168.1.113:5555`, Gplus **GTV-50MU724S** (MediaTek `m7332_gplus`), Android 9 (SDK 28), firmware **V3.2.0** (`kgzn.ver.android=202111161819.9ff4847`, display id `m7332_gplus-userdebug 9 PPR2.180905.006.A1 202111161817`), kernel `4.9.118+` armv7l, `userdebug` build (`adb root` works). See [`TV-AND-DEBUG.md`](TV-AND-DEBUG.md) for About / Debug unlock.
 Dongle: Realtek Bluetooth Radio, USB `0bda:8771` (RTL8761B, USB), BD address `00:E0:4C:23:99:87`
 
 ## Outcome: SUCCESS (proof-of-concept, temporary)
